@@ -12,3 +12,7 @@ We are working on getting this into NPM.
 * `getready` is an alternate name for the `QuestionReady` event
 * `podium` is an alternate name for the `Podium` event
 * `2fa` is an alternate name for the `TwoFactorReset` event
+
+## New Events
+* `locked` is fired when the connection is terminated because the quiz is locked
+* `samename` is fired when the connection is terminated because there is already a user with the same nickname
