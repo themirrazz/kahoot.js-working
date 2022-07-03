@@ -1,18 +1,36 @@
-# kahoot.js-working
-A working version of the "kahoot.js-updated-fixed" library.
+# About
+Kahoot.js is a library to interact with the Kahoot API. kahoot.js supports joining and interacting with quizzes and challenges.
+**Installation requires Node.js 10.9.0 or higher.**
 
-We are working on getting this into NPM.
+![NPM](https://nodei.co/npm/kahoot.js-updated.png)
 
-## Alternate Event Names
-* `question` is an alternate name for the `QuestionStart` event
-* `start` is an alternate name for the `QuizStart` event
-* `questionend` is an alternate name for the `QuestionEnd` event
-* `connect` is an alternate name for the `Joined` event
-* `end` is an alternate name for the `QuizEnd` event
-* `getready` is an alternate name for the `QuestionReady` event
-* `podium` is an alternate name for the `Podium` event
-* `2fa` is an alternate name for the `TwoFactorReset` event
+![Dependencies](https://david-dm.org/theusaf/kahoot.js-updated.svg) [![Known Vulnerabilities](https://snyk.io/test/github/theusaf/kahoot.js-updated/badge.svg)](https://snyk.io/test/github/theusaf/kahoot.js-updated) [![HitCount](https://hits.dwyl.com/theusaf/kahoot.js-updated.svg)](https://hits.dwyl.com/theusaf/kahoot.js-updated) ![Builds](https://travis-ci.com/theusaf/kahoot.js-updated.svg?branch=master) ![Docs](https://inch-ci.org/github/theusaf/kahoot.js-updated.svg?branch=master)
 
-## New Events
-* `locked` is fired when the connection is terminated because the quiz is locked
-* `samename` is fired when the connection is terminated because there is already a user with the same nickname
+**Note: If upgrading from version 1.x.x, read the latest documentation for the new api first.**
+
+# Basic Example
+```js
+const Kahoot = require("kahoot.js-updated");
+const client = new Kahoot();
+console.log("Joining kahoot...");
+client.join(9802345 /* Or any other kahoot game pin */, "kahoot.js");
+client.on("Joined", () => {
+  console.log("I joined the Kahoot!");
+});
+client.on("QuizStart", () => {
+  console.log("The quiz has started!");
+});
+client.on("QuestionStart", question => {
+  console.log("A new question has started, answering the first answer.");
+  question.answer(0);
+});
+client.on("QuizEnd", () => {
+  console.log("The quiz has ended.");
+});
+```
+
+## Full API Documentation
+See [Documentation.md](Documentation.md).
+
+## Examples
+See `examples/` and `tests/`.
