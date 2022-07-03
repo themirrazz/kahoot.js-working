@@ -11,4 +11,4 @@ We are working on getting this into NPM.
 * `end` is an alternate name for the `QuizEnd` event
 * `getready` is an alternate name for the `QuestionReady` event
 * `podium` is an alternate name for the `Podium` event
-* `2fareset` is an alternate name for the `TwoFactorReset` event
+* `2fa` is an alternate name for the `TwoFactorReset` event
